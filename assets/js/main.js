@@ -49,6 +49,7 @@ let hang = 0;
 let hangDelay = 50;
 let hangTimer = 0;
 let bikeSpriteSelector = 6;
+let lap=1;
 
 window.addEventListener(
     'load',
@@ -172,6 +173,15 @@ window.addEventListener(
         tire = Util.toInt(position / 500) % 2;
 
         bikeSpriteSelector = 6 + tire + hang + brake;
+
+        round = trackLength / 300;
+        posistionplayer = position / 300;
+        if (posistionplayer > (round - 0.7)) {
+            lap++;
+        }
+    document.getElementById("laps").textContent = lap;
+
+        document.getElementById("speed").textContent = speed/100;
     };
 
    const render = () => {
